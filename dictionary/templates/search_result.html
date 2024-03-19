@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=devive-width, initial-scale="1.0">
+        <title>Search Result</title>
+    </head>
+    <body>
+        <h1>Search Result</h1>
+        {% if word %}
+            <p><strong>Word:</strong>{{word}}</p>
+            <p><strong>Meaning:</strong>{{meaning}}</p>
+        {% else %}
+            <p>NO word found</p>
+        {% endif %}
+
+        <!-- <h2>Previous Searches:</h2>
+        <ul>
+            {% for search in previous_searches %}
+                <li>{{ search.0 }}: {{ search.1 }}</li>
+            {% endfor %} -->
+        <!-- </ul> -->
+    </body>
+</html>
