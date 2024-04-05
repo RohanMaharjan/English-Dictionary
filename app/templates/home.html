@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGLISH DICTIONARY</title>
+    <link rel="stylesheet" href="{% static 'design.css' %}">
+</head>
+<body> 
+    <h1>English Dictionary</h1>
+    <div class="container center">
+        <form method="GET" action="{% url 'search_meaning' %}">
+            <input type="text" id="wordInput" name="word" placeholder="Enter Word">
+            <button type="submit" class="search-button">SEARCH</button>
+            <!-- In your HTML template, e.g., search_result.html -->
+            <a href="{% url 'search_history' %}" class="btn btn-primary" id="history-btn">History</a>
+        </form>
+    </div>
+</body>
+</html>

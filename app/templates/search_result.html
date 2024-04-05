@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=devive-width, initial-scale="1.0">
+        <title>Search Result</title>
+        <link rel="stylesheet" href="{% static 'design.css' %}">
+    </head>
+    <!-- <style>
+        #sh2{
+            text-align: left;
+            color: rgba(51, 51, 51, 0.808);
+            font-size: 20px;
+            padding-top: 20px;
+        }
+        #fh2{
+            color: black;
+            font-size: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; /* Default Bootstrap primary color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none; /* Remove underline for anchor element */
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3; /* Darker shade of primary color on hover */
+        }
+        
+        #history-btn {
+            position: fixed;
+            top: 20px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            z-index: 1000; /* Ensure the button is above other content */
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 30vh;
+        }
+
+        input[type="text"]::placeholder {
+            font-size: 16px; /* Adjust the font size as needed */
+            /* width: 5000px;
+            height: 500px; */
+            padding: 10px;
+        }
+
+        input[type="text"] {
+        width: 350px; /* Set the width to make it bigger */
+        height: 50px;
+        margin: 0 auto; /* Center align horizontally */
+        display: block; /* Make it a block-level element to apply margin */
+        }
+
+        .search-button {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style> -->
+    <body>
+        <h1>English Dictionary</h1>
+        <div class="container center">
+            <form method="GET" action="{% url 'search_meaning' %}">
+                <input type="text" name="word" placeholder="Enter Word">
+                <button type="submit" class="search-button">SEARCH</button>
+            </form>
+        </div>
+        <h1 id="sh2">Search Result</h1><br>
+        {% if word %}
+            <p id="fh2"><strong>Word:</strong>{{word}}</p>
+            <p id="fh2"><strong>Meaning:</strong>{{meaning}}</p>
+            <p id="fh2"><strong>Synonym:</strong>{{synonym}}</p>
+            <p id="fh2"><strong>Antonym:</strong>{{antonym}}</p>
+        {% else %}
+            <p>NO word found</p>
+        {% endif %}
+
+        <!-- <h2>Previous Searches:</h2>
+        <ul>
+            {% for search in previous_searches %}
+                <li>{{ search.0 }}: {{ search.1 }}</li>
+            {% endfor %} -->
+        <!-- </ul> -->
+        <a href="{% url 'search_history' %}" class="btn btn-primary" id="history-btn">History</a>
+
+    </body>
+</html>

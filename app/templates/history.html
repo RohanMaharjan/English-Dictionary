@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=devive-width, initial-scale=1.0">
+        <title>SEARCH HiSTORY</title>
+    </head>
+    <style>
+        body{
+            background-color: limegreen;
+        }
+        h1 {
+            font-size: 30px;
+        }
+    </style>
+    <body>
+        <h1>Previous Searches:</h1>
+        <ul>
+            {% for search in previous_searches %}
+                <li style="font-size: 20px;">{{ search.0 }}: {{ search.1 }}</li>
+            {% endfor %}
+        </ul>
+        <form action="{% url 'clear_history' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" name="clear_history">Clear History</button>
+        </form>
+    </body>
+</html>

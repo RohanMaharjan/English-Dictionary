@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta charset="viewport" content="width=devive-width, initial-scale=1.0">
+        <title>Word Not Found</title>
+    <link rel="stylesheet" href="{% static 'design.css' %}">
+    </head>
+    <!-- <style>
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; /* Default Bootstrap primary color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none; /* Remove underline for anchor element */
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3; /* Darker shade of primary color on hover */
+        }
+        
+        #history-btn {
+            position: fixed;
+            top: 20px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            z-index: 1000; /* Ensure the button is above other content */
+        }
+
+        .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 30vh;
+        }
+
+        input[type="text"]::placeholder {
+            font-size: 16px; /* Adjust the font size as needed */
+            /* width: 5000px;
+            height: 500px; */
+            padding: 10px;
+        }
+
+        input[type="text"] {
+        width: 350px; /* Set the width to make it bigger */
+        height: 50px;
+        margin: 0 auto; /* Center align horizontally */
+        display: block; /* Make it a block-level element to apply margin */
+        }
+
+        .search-button {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+    </style> -->
+    <body>
+        <h1>English Dictionary</h1>
+        <div class="container center">  
+            <form method="GET" action="{% url 'search_meaning' %}">
+                <input type="text" name="word" placeholder="Enter Word">
+                <button type="submit" class="search-button">SEARCH</button>
+            </form>    
+        </div>
+        <!-- <h1>Word Not Found</h1> -->
+        <p style="font-size: 30px;">The word you entered was not found in the Dictonary.</p>
+        <a href="{% url 'search_history' %}" class="btn btn-primary" id="history-btn">History</a>
+
+    </body>
+</html>
